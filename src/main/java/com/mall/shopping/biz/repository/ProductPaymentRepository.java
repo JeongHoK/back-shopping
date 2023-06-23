@@ -1,6 +1,6 @@
-package com.mall.shopping.repository;
+package com.mall.shopping.biz.repository;
 
-import com.mall.shopping.entity.ProductPayment;
+import com.mall.shopping.biz.entity.ProductPayment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

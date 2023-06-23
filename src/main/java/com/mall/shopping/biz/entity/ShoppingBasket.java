@@ -1,4 +1,4 @@
-package com.mall.shopping.entity;
+package com.mall.shopping.biz.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,12 +12,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class ProductOrder {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ShoppingBasket {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
+    private Product product;
+
+    @Column(nullable = false)
+    private Integer productCount;
+
 }

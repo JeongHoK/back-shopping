@@ -1,4 +1,4 @@
-package com.mall.shopping.entity;
+package com.mall.shopping.biz.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
