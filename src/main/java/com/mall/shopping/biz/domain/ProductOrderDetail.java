@@ -1,4 +1,4 @@
-package com.mall.shopping.biz.entity;
+package com.mall.shopping.biz.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,13 +12,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Product {
+public class ProductOrderDetail {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_order_detail_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productCategoryId")
-    private ProductCategory productCategory;
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_order_id")
+    private ProductOrder productOrder;
 
     @Column(nullable = false, length = 100)
     private String productName;
@@ -27,14 +32,5 @@ public class Product {
     private Integer price;
 
     @Column(nullable = false)
-    private Integer stock;
-
-    @Column(nullable = false, length = 1)
-    private String soldOutYn;
-
-    @Column(nullable = false, length = 5000)
-    private String productExplanation;
-
-    @Column(nullable = false)
-    private Integer starScore;
+    private Integer productCount;
 }

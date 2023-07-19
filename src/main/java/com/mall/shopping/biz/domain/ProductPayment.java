@@ -1,4 +1,4 @@
-package com.mall.shopping.biz.entity;
+package com.mall.shopping.biz.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,10 +15,11 @@ import javax.persistence.*;
 public class ProductPayment {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_payment_id")
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productOrderId")
+    @JoinColumn(name = "product_order_id")
     private ProductOrder productOrder;
 
     @Column(nullable = false)

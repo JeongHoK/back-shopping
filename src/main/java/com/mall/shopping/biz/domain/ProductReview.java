@@ -1,4 +1,4 @@
-package com.mall.shopping.biz.entity;
+package com.mall.shopping.biz.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,14 +15,15 @@ import javax.persistence.*;
 public class ProductReview {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_review_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private User user;
 
     @Column(nullable = false, length = 500)

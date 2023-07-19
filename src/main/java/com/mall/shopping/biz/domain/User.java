@@ -1,4 +1,4 @@
-package com.mall.shopping.biz.entity;
+package com.mall.shopping.biz.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,10 +15,11 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
     @Column(nullable = false, length = 20)
-    private String userId;
+    private String account_id;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String password;
