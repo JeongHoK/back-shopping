@@ -23,8 +23,6 @@ public class ProductDto {
 
     private Integer starScore;
 
-    private Integer ranking;
-
     public ProductDto(Product product) {
         this.id = product.getId();
         this.productCategory = product.getProductCategory();

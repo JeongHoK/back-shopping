@@ -1,6 +1,7 @@
 package com.mall.shopping.biz.repository;
 
 import com.mall.shopping.biz.dto.ProductDto;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.NullExpression;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
@@ -47,15 +48,14 @@ public class ProductQueryRepository {
 
     private OrderSpecifier createOrderSpecifier(String sort) {
 
-        // FIXME : 이렇게 하면 NULL 기준으로 sort 나간다.
-        //  - 조건 없을 땐 아예 빼고 싶은데..
-
-        OrderSpecifier orderSpecifier = new OrderSpecifier(Order.ASC, NullExpression.DEFAULT);
-
-        if(StringUtils.hasText(sort) && sort.equals("star-score")) {
-            orderSpecifier = new OrderSpecifier(Order.DESC, product.starScore);
+        // TODO : 뭔가 깔끔하지는 않은 느낌인데..
+        //  - sort의 값이 없을 때 여기 들어오지 않고 querydsl에서 걸러지게 할 수 있는 방법이 있을까?
+        if(!StringUtils.hasText(sort)) {
+           return new OrderSpecifier(Order.DESC, product.id);
+        } else if (sort.equals("star-score")) {
+            return new OrderSpecifier(Order.DESC, product.starScore);
+        } else {
+            return new OrderSpecifier(Order.DESC, product.id);
         }
-
-        return orderSpecifier;
     }
 }

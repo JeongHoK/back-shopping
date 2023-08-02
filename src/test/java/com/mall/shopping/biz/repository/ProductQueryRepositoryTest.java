@@ -31,8 +31,12 @@ class ProductQueryRepositoryTest {
     @Test
     void testGetProductDtos() {
 
-        Page<ProductDto> productDtos = productQueryRepository.getProductDtos(1L, null, PageRequest.of(0, 10));
+        Page<ProductDto> productDtos = productQueryRepository.getProductDtos(1L, "star-score", PageRequest.of(0, 10));
 
         Assertions.assertThat(productDtos.getSize()).isEqualTo(10);
+
+        for (ProductDto productDto : productDtos) {
+            System.out.println("productDto = " + productDto.toString());
+        }
     }
 }
