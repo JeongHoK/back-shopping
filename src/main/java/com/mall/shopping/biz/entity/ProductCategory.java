@@ -1,18 +1,16 @@
-package com.mall.shopping.biz.domain;
+package com.mall.shopping.biz.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
 @Entity
 public class ProductCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_category_id")
@@ -20,4 +18,10 @@ public class ProductCategory {
 
     @Column(nullable = false, length = 20)
     private String categoryName;
+
+    public static ProductCategory create(String categoryName) {
+        return ProductCategory.builder().categoryName(categoryName).build();
+    }
+
+
 }
