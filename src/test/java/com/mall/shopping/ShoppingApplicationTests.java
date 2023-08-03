@@ -1,11 +1,11 @@
 package com.mall.shopping;
 
-import com.mall.shopping.biz.entity.Product;
-import com.mall.shopping.biz.entity.ProductCategory;
-import com.mall.shopping.biz.entity.User;
-import com.mall.shopping.biz.repository.ProductCategoryRepository;
-import com.mall.shopping.biz.repository.ProductRepository;
-import com.mall.shopping.biz.repository.UserRepository;
+import com.mall.shopping.domain.product.entity.Product;
+import com.mall.shopping.domain.product.entity.ProductCategory;
+import com.mall.shopping.domain.user.entity.User;
+import com.mall.shopping.domain.product.repo.ProductCategoryRepository;
+import com.mall.shopping.domain.product.repo.ProductRepository;
+import com.mall.shopping.domain.user.repo.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
