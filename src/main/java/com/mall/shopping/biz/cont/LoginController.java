@@ -1,7 +1,17 @@
 package com.mall.shopping.biz.cont;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class LoginController {
+
+    // SNS 연동 로그인
+
+    // 로그인 정보 확인
+
+    // 세션 관리
+
 }
+
+
+
